@@ -1,0 +1,24 @@
+.jumbotron {
+  background: url(../../assets/img/popcornBackground2.jpg);
+  background-size: cover;
+  height: 600px;
+}
+
+body {
+  background: #7E1616;
+}
+
+.search-container {
+  margin-bottom: 5px;
+}
+
+.searchResult {
+  border: 1px solid black;
+  border-radius: 5px;
+  background: rgba(192, 193, 193, 0.5);
+  width: 92.5%;
+  text-align: left;
+
+  /* background-color: #C0C1C1; */
+  /* opacity: 50%; */
+}
