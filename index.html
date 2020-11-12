@@ -33,9 +33,33 @@
         <div class="jumbotron">
             <h1><span style="font-family: 'undeveloped_bookregular'; font-size: 100px; color: #000000">Moviepedia</span></h1>
             <strong>Your website for movie knowledge.</strong>
-            <div class="search-container"><input type="text" class="search-input" name="search-bar" placeholder="Search..." /><button class="btn btn-light search-btn" type="button"><i class="fa fa-search"></i></button></div>
+            <div class="search-container">
+                <input id="searchBar" type="text" class="search-input" name="search-bar" placeholder="Search..." />
+                <button id="searchButton" class="btn btn-light search-btn" type="button"><i class="fa fa-search"></i>
+                </button>
+            </div>
+            <div id="searchResults">
+                <div id="results"></div>
+            </div>
         </div>
     </div>
+
+    <!--From W3 schools website-->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="node_modules/axios/dist/axios.js"></script>
+    <script src="assets/js/autocomplete.js"></script>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/jquery.min.js"></script>
