@@ -1,0 +1,10 @@
+.jumbotron {
+  background: url(../../assets/img/popcornBackground2.jpg);
+  background-size: cover;
+  height: 500px;
+}
+
+body {
+  background: #7E1616;
+}
+
