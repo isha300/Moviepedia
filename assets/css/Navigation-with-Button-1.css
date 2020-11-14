@@ -1,5 +1,5 @@
 .navigation-clean-button {
-  background: #C0C1C1;
+  background: #fff;
   padding-top: .75rem;
   padding-bottom: .75rem;
   color: #333;
@@ -177,7 +177,7 @@
 }
 
 .navigation-clean-button .navbar-text .action-button, .navigation-clean-button .navbar-text .action-button:active, .navigation-clean-button .navbar-text .action-button:hover {
-  background: #881818;
+  background: #56c6c6;
   border-radius: 20px;
   font-size: inherit;
   color: #fff;
@@ -190,14 +190,14 @@
 }
 
 .navigation-clean-button .navbar-text .action-button:hover {
-  background: #C81D23;
+  background: #66d7d7;
 }
 
 .navigation-clean-button.navbar-dark .action-button, .navigation-clean-button.navbar-dark .action-button:active {
-  background: #C81D22;
+  background: #208f8f;
 }
 
 .navigation-clean-button.navbar-dark .action-button:hover {
-  background: #C81D23;
+  background: #269d9d;
 }
 

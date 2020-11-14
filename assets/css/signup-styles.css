@@ -1,0 +1,32 @@
+#signUpBackground {
+  background: url(../../assets/img/movieIcon.jpg);
+  background-size: cover;
+}
+
+#signUpInfoHeader {
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 5%;
+  color: black;
+  background-color: white;
+  width: 35%;
+  margin: auto;
+  margin-top: 5%;
+  padding: 10px;
+}
+
+#signupCard {
+  width: 35%;
+  margin: auto;
+  margin-top: 3%;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+#joinBtn {
+  border-radius: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: rgba(160,82,45, 0.8);
+}
+

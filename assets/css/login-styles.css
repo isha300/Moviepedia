@@ -1,0 +1,22 @@
+#loginBackground {
+  background: url(../../assets/img/movieIcon.jpg);
+  background-size: cover;
+}
+
+#loginBtn {
+  margin-right: 10px;
+}
+
+#loginCard {
+  width: 30%;
+  margin: auto;
+  margin-top: 10%;
+  height: 50%;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+#loginEnterBtn {
+  background-color: rgba(160,82,45, 0.8);
+  border-radius: 20px;
+}
+
