@@ -24,23 +24,61 @@
             <div class="collapse navbar-collapse"
                 id="navcol-1">
                 <ul class="nav navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="#">HOME</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">HOME</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">NOW PLAYING</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">UPCOMING</a></li>
                 </ul>
                 <form class="form-inline mr-auto" target="_self">
-                    <div class="form-group"><label for="search-field"></label></div>
-                </form><a class="btn btn-light action-button" role="button" id="loginBtn" href="#">Log In</a><a class="btn btn-light action-button" role="button" href="#">Sign In</a></div>
+                    <div class="form-group">
+                        <label for="search-field"></label>
+                    </div>
+                </form>
+                <a class="btn btn-light action-button" role="button" id="loginBtn" href="#">Log In</a>
+                <a class="btn btn-light action-button" role="button" href="signup.html">Sign In</a>
+            </div>
         </div>
     </nav>
+
     <div class="card" id="loginCard">
-        <div class="card-body">
+        <form class="card-body loginForm">
             <h4 class="card-title">LOG IN</h4>
-            <div class="form-group"><label>Email:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</label><input type="email" id="userEmail" required=""></div>
-            <div class="form-group"><label>Password:&nbsp; &nbsp; &nbsp;</label><input type="password" id="userPassword" required=""></div><button class="btn btn-primary text-left text-dark" id="loginEnterBtn" type="button">Enter</button></div>
+            <div class="form-group">
+                <label>Email:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</label>
+                <input type="email" class="email" id="userEmail" required>
+            </div>
+            <div class="form-group">
+                <label>Password:&nbsp; &nbsp; &nbsp;</label>
+                <input type="password" class="password" id="userPassword" required>
+            </div>
+            <button class="btn btn-primary text-left text-dark" id="loginEnterBtn" type="submit">Log In</button><br><br>
+            <h5 id="invalidLogin">Invalid Credentials!</h5>
+        </form>
     </div>
+
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="./node_modules/firebase/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="./node_modules/firebase/firebase-auth.js"></script>
+    
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyA7mn9OBzEaqnMZG7BvMKiIfVaqHsNCKeA",
+            authDomain: "moviepedia-dc067.firebaseapp.com",
+            databaseURL: "https://moviepedia-dc067.firebaseio.com",
+            projectId: "moviepedia-dc067",
+            storageBucket: "moviepedia-dc067.appspot.com",
+            messagingSenderId: "397029448180",
+            appId: "1:397029448180:web:8a816a5b2ef85d33d5c1a1"
+        };
+        firebase.initializeApp(firebaseConfig);
+    </script>
+    <script src="authentication.js" type="module"></script>
 </body>
 
 </html>
