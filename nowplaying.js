@@ -21,7 +21,7 @@ export const renderCard = function(movie) {
 export const renderPage = async function() {
     let result = await axios({
         method: 'get',
-        url: 'https://api.themoviedb.org/3/movie/upcoming?api_key=780f46d1155fac9510be1f54ce452592&language=en-US&page=1',
+        url: 'https://api.themoviedb.org/3/movie/now_playing?api_key=780f46d1155fac9510be1f54ce452592&language=en-US&page=1',
     });
     result = result.data.results;
     for (let i=0; i<20; i++){

@@ -15,24 +15,17 @@ body{
   background-image: url("../img/movieIcon.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
+  background-attachment: fixed;
 }
 
 .main-title{
   font-size: 40px;
 }
 
-.float-layout {
-  padding: 5px 5px;
-  float: left;
-  width: 100%;
-  height: auto;
-  box-sizing: border-box;
-  margin: 0;
-}
-
 .card-container {
   overflow: hidden;
   margin-top: 15%;
+  width: 30%;
 }
 
 .card {
@@ -136,4 +129,29 @@ p.text{
 div hr{
   border-top: 4px solid rgb(170, 111, 77);
   margin-top: 12%;
+}
+
+.fa-heart-o {
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+}
+
+.fa-heart {
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+}
+
+.like-button-container{
+  padding-top: 133%;
+  padding-left: 85%;
+  position: absolute;
+}
+
+#placeholder{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-left: -10%;
+  margin-right: -10%;
 }
