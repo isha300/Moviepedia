@@ -17,8 +17,7 @@
     <div class="entire-page">
         <div class="nav-header">
             <nav class="navbar navbar-light navbar-expand-md navbar navbar-expand-lg fixed-top" id="mainNav">
-                <div class="container"><a class="navbar-brand js-scroll-trigger main-title" href="index.html"
-                        style="border-bottom-style: solid;">My
+                <div class="container"><a class="navbar-brand js-scroll-trigger main-title" href="index.html">My
                         Moviepedia</a><button data-toggle="collapse"
                         style="background-image: url('assets/img/movieprojector.jpg');height: 100px;"
                         class="navbar-toggler navbar-toggler-right" data-target="#navbarResponsive" type="button"
@@ -27,7 +26,7 @@
                     <div class="collapse navbar-collapse" id="navbarResponsive">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item nav-link js-scroll-trigger"><a class="nav-link active js-scroll-trigger"
-                                    href="nowplaying.html">Now Playing</a></li>
+                                    href="nowplaying.html" style="border-bottom-style: solid;">Now Playing</a></li>
                             <li class="nav-item nav-link js-scroll-trigger"><a class="nav-link js-scroll-trigger"
                                     href="upcoming.html">Upcoming</a></li>
                             <li class="nav-item nav-link js-scroll-trigger"><a class="nav-link js-scroll-trigger"
@@ -42,23 +41,11 @@
             <header class="masthead" style="background-image: url('assets/img/movieIcon.jpg');height: 100px;">
             </header>
         </div>
-        <div class="search-bar">
-            <input type="text" name="search" placeholder="search..">
-            <button id="searchButton" class="btn btn-light search-btn" type="button"><i class="fa fa-search"></i>
-            </button>
-        </div>
-        <div class="intro-row">
-            <div class="intro-col">
-                <p class="subtitle">MY MOVIEPEDIA</p>
-            </div>
-            <div class="intro-col">
-                <hr>
-            </div>
-            <div class="intro-col">
-                <p class="text">Enter an actor's name to see what movies they've been in</p>
-            </div>
-        </div>
         <div class="container">
+            <div id="placeholder">
+            </div>
+            <script src="nowplaying.js" type="module"></script>
+            <script src="node_modules/axios/dist/axios.js"></script>
             <script src="assets/js/jquery.min.js"></script>
             <script src="assets/bootstrap/js/bootstrap.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
