@@ -30,7 +30,7 @@ const autocomplete = async function(event) {
             // limit autocomplete options to six
             filtered.splice(0, filtered.length-5);
 
-            filtered.forEach(x => $(`#results`).prepend(`<button class="search-input searchResult" class="${x.id}">${x.name}</button>`));
+            filtered.forEach(x => $(`#results`).append(`<button class="search-input searchResult" class="${x.id}">${x.name}</button>`));
         }
     } else if (text == "") {
         $(`#results`).replaceWith(`<div id="results"></div>`);
@@ -64,22 +64,7 @@ const renderCard = function(movie) {
     let year = `${movie.release_date}`.slice(0,4);
     let day = `${movie.release_date}`.slice(8,10);
 
-    // let mid = `${movie.overview}`.replace(/([.?!])\s*(?=[A-Z])/g, "$1|");
-    // let overview;
-    // let i = 0;
-    // for (let char of mid) {
-    //     if (char == "|") {
-    //         i++;
-    //     } if (i == 2) {
-    //         break;
-    //     } else {
-    //         overview += char;
-    //     }
-    // }
-
-
-
-    // let overview = `${movie.overview}`.replace(/^(.{100}[^\s]*).*/, "$1");
+    let overview = `${movie.overview}`.replace(/^(.{200}[^\s]*).*/, "$1" + "...");
 
     let nullCard = `<div data-id=${movie.id} class="card-container">
         <div class="float-layout">
@@ -88,7 +73,7 @@ const renderCard = function(movie) {
                 <div class="card">
                     <div class="card-desc">
                         <strong>${movie.title}</strong>
-                        <p id="text" style="font-size:12px">${overview}</p>
+                        <p id="text" style="font-size:12px; color: #816058;">${overview}</p>
                         <br>
                         <p>${month}/${day}/${year}</p>
                     </div>
@@ -108,7 +93,7 @@ const renderCard = function(movie) {
                     <div id="card" class="card">
                         <div class="card-desc">
                             <strong>${movie.title}</strong>
-                            <p id="text" style="font-size:12px">${overview}</p>
+                            <p id="text" style="font-size:12px; color: #816058;">${overview}</p>
                             <br>
                             <p>${month}/${day}/${year}</p>
                         </div>
