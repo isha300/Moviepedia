@@ -18,7 +18,13 @@ const autocomplete = async function(event) {
 
     if (!event.code.includes("Shift") && text !="") {
         returned = await getName(text);
-        let filtered = returned.filter(x => x.name.toLowerCase().startsWith(text.toLowerCase())); // filter results by starting words in query
+
+        // filter results by starting words and popularity in query
+        let filtered = returned.filter(x => x.name.toLowerCase().startsWith(text.toLowerCase())); 
+
+        filtered.sort(function(n1, n2) {
+            return n2.popularity - n1.popularity;
+        });
 
         if (filtered.length === 0) {
             $(`#results`).replaceWith(`<div id="results"><div class="search-input searchResult" style="color:black">No results</div></div>`);
@@ -82,25 +88,140 @@ const handleLikeButtonPress = async function(event) {
 };
 
 async function namePage(event) {
+    // get movie names
     let movies = await getMovies(event.currentTarget.className);
+
+    // sort movies by popularity
+    movies.sort(function(m1, m2) {
+        return m2.popularity - m1.popularity;
+    });    
+
+    // replace search bar with results
     $('.replace-container').replaceWith(`<div id="resultContainer"></div>`);
-    
-    movies.forEach(m => $("#resultContainer").append(renderCard(m)));
-    
+    var db = firebase.firestore();
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
-            $('.like-button-container').show();
+            var docRef = db.collection("users").doc(user.email);
+            docRef.get().then(function(doc) {
+                let favorites = [];
+                if (doc.exists) {
+                    favorites = doc.data().movies;
+                }
+                movies.forEach(m => $("#resultContainer").append(renderCard(m, favorites)));
+            }).catch(function(error) {
+                console.log("Error getting document:", error);
+            });
+        } else {
+            movies.forEach(m => $("#resultContainer").append(renderCardNoHeart(m)));
         }
     });
     $("#resultContainer").on("click", "span.heart", handleLikeButtonPress);
 }
 
-const renderCard = function(movie) {
+const renderCard = function(movie, favorites) {
+    let favorited = favorites.includes(movie.id);
     let month = `${movie.release_date}`.slice(5,7);
     let year = `${movie.release_date}`.slice(0,4);
     let day = `${movie.release_date}`.slice(8,10);
 
-    let overview = `${movie.overview}`.replace(/^(.{200}[^\s]*).*/, "$1" + "...");
+    let title = `${movie.title}`.replace(/^(.{32}[^\s]*).*/, "$1" + "...");
+    let overview = `${movie.overview}`.replace(/^(.{170}[^\s]*).*/, "$1" + "...");
+    if (favorited) {
+        let nullCard = `<div data-id=${movie.id} class="card-container">
+        <div class="float-layout">
+            <div class="card-image">
+                <img src="assets/img/no-poster.JPG"/>
+                <div class="card">
+                    <div class="card-desc">
+                        <strong>${title}</strong>
+                        <p id="text" style="font-size:12px; color: #816058;">${overview}</p>
+                    </div>
+                    <div class="release-date" align="left">
+                            <p>${month}/${day}/${year}</p>
+                    </div>
+                    <div class="like-button-container" align="right">
+                        <span id=${movie.id} class="heart"><i class="fa fa-heart" aria-hidden="true" ></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>`;
+
+        let card = `
+            <div data-id=${movie.id} class="card-container">
+                <div class="float-layout">
+                    <div class="card-image">
+                        <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}">
+                        <div id="card" class="card">
+                            <div class="card-desc">
+                                <strong>${title}</strong>
+                                <p id="text" style="font-size:12px; color: #816058;">${overview}</p>
+                            </div>
+                            <div class="release-date" align="left">
+                                <p>${month}/${day}/${year}</p>
+                            </div>
+                            <div class="like-button-container" align="right">
+                                <span id=${movie.id} class="heart"><i class="fa fa-heart" aria-hidden="true" ></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+        
+        return (movie.poster_path === null) ? nullCard : card;
+    } else {
+        let nullCard = `<div data-id=${movie.id} class="card-container">
+        <div class="float-layout">
+            <div class="card-image">
+                <img src="assets/img/no-poster.JPG"/>
+                <div class="card">
+                    <div class="card-desc">
+                        <strong>${title}</strong>
+                        <p id="text" style="font-size:12px; color: #816058;">${overview}</p>
+                    </div>
+                    <div class="release-date" align="left">
+                            <p>${month}/${day}/${year}</p>
+                    </div>
+                    <div class="like-button-container" align="right">
+                        <span id=${movie.id} class="heart"><i class="fa fa-heart-o" aria-hidden="true" ></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>`;
+
+        let card = `
+            <div data-id=${movie.id} class="card-container">
+                <div class="float-layout">
+                    <div class="card-image">
+                        <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}">
+                        <div id="card" class="card">
+                            <div class="card-desc">
+                                <strong>${title}</strong>
+                                <p id="text" style="font-size:12px; color: #816058;">${overview}</p>
+                            </div>
+                            <div class="release-date" align="left">
+                                <p>${month}/${day}/${year}</p>
+                            </div>
+                            <div class="like-button-container" align="right">
+                                <span id=${movie.id} class="heart"><i class="fa fa-heart-o" aria-hidden="true" ></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>`;
+        
+        return (movie.poster_path === null) ? nullCard : card;
+    }
+};
+
+const renderCardNoHeart = function(movie) {
+    let month = `${movie.release_date}`.slice(5,7);
+    let year = `${movie.release_date}`.slice(0,4);
+    let day = `${movie.release_date}`.slice(8,10);
+
+    let title = `${movie.title}`.replace(/^(.{32}[^\s]*).*/, "$1" + "...");
+    let overview = `${movie.overview}`.replace(/^(.{170}[^\s]*).*/, "$1" + "...");
 
     let nullCard = `<div data-id=${movie.id} class="card-container">
         <div class="float-layout">
@@ -108,13 +229,11 @@ const renderCard = function(movie) {
                 <img src="assets/img/no-poster.JPG"/>
                 <div class="card">
                     <div class="card-desc">
-                        <strong>${movie.title}</strong>
+                        <strong>${title}</strong>
                         <p id="text" style="font-size:12px; color: #816058;">${overview}</p>
-                        <br>
-                        <p>${month}/${day}/${year}</p>
                     </div>
-                    <div class="like-button-container" align="right">
-                        <span id=${movie.id} class="heart"><i class="fa fa-heart-o" aria-hidden="true" ></i></span>
+                    <div class="release-date" align="left">
+                            <p>${month}/${day}/${year}</p>
                     </div>
                 </div>
             </div>
@@ -128,46 +247,20 @@ const renderCard = function(movie) {
                     <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}">
                     <div id="card" class="card">
                         <div class="card-desc">
-                            <strong>${movie.title}</strong>
+                            <strong>${title}</strong>
                             <p id="text" style="font-size:12px; color: #816058;">${overview}</p>
-                            <br>
-                            <p>${month}/${day}/${year}</p>
                         </div>
-                        <div class="like-button-container" align="right">
-                            <span id=${movie.id} class="heart"><i class="fa fa-heart-o" aria-hidden="true" ></i></span>
+                        <div class="release-date" align="left">
+                            <p>${month}/${day}/${year}</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>`;
-
-    // let flipCard = `
-    // <div data-id=${movie.id} class="flip-card card-container">
-    //     <div class="flip-card-inner float-layout">
-    //         <div class="flip-card-front">
-    //             <div class="card-image">
-    //                 <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}">
-    //                 <div class="card">
-    //                     <div class="card-desc">
-    //                         <p>${movie.title}</p>
-    //                     </div>
-    //                     <div class="like-button-container" align="right">
-    //                         <span id=${movie.id} class="heart"><i class="fa fa-heart-o" aria-hidden="true" ></i></span>
-    //                     </div>
-    //                 </div>
-    //             </div>
-    //         </div>
-            
-    //         <div class="flip-card-back">
-    //             <h1>Back info</h1>
-    //         </div>
-    //     </div>
-    // </div>`;
-
+    
     return (movie.poster_path === null) ? nullCard : card;
-}
+};
 
 $(function() {
     $("#searchBar").on("keyup", autocomplete);
-    //$("#resultContainer").on("click", "span.heart", handleLikeButtonPress);
 });
