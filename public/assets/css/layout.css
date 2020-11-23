@@ -152,6 +152,12 @@ div hr{
   position: absolute;
 }
 
+.release-date {
+  padding-top: 133%;
+  padding-left: 5%;
+  position: absolute;
+}
+
 #placeholder, #resultContainer {
   display: flex;
   flex-direction: row;

@@ -22,8 +22,8 @@ const autocomplete = async function(event) {
         // filter results by starting words and popularity in query
         let filtered = returned.filter(x => x.name.toLowerCase().startsWith(text.toLowerCase())); 
 
-        filtered.sort(function(a,b) {
-            return b.popularity - a.popularity;
+        filtered.sort(function(n1, n2) {
+            return n2.popularity - n1.popularity;
         });
 
         if (filtered.length === 0) {
@@ -92,10 +92,10 @@ async function namePage(event) {
     let movies = await getMovies(event.currentTarget.className);
 
     // sort movies by popularity
-    movies.sort(function(a,b) {
-        return b.popularity - a.popularity;
+    movies.sort(function(m1, m2) {
+        return m2.popularity - m1.popularity;
     });    
-    
+
     // replace search bar with results
     $('.replace-container').replaceWith(`<div id="resultContainer"></div>`);
     
@@ -124,7 +124,8 @@ const renderCard = function(movie) {
                     <div class="card-desc">
                         <strong>${movie.title}</strong>
                         <p id="text" style="font-size:12px; color: #816058;">${overview}</p>
-                        <br>
+                    </div>
+                    <div class="release-date" align="left">
                         <p>${month}/${day}/${year}</p>
                     </div>
                     <div class="like-button-container" align="right">
@@ -144,7 +145,8 @@ const renderCard = function(movie) {
                         <div class="card-desc">
                             <strong>${movie.title}</strong>
                             <p id="text" style="font-size:12px; color: #816058;">${overview}</p>
-                            <br>
+                        </div>
+                        <div class="release-date" align="left">
                             <p>${month}/${day}/${year}</p>
                         </div>
                         <div class="like-button-container" align="right">

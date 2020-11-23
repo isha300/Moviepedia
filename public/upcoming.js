@@ -14,8 +14,9 @@ export const renderCard = function(movie) {
                     <div class="card-desc">
                         <strong>${title}</strong>
                         <p id="text" style="font-size:12px; color: #816058;">${overview}</p>
-                        <br>
-                        <p>${month}/${day}/${year}</p>
+                    </div>
+                    <div class="release-date" align="left">
+                            <p>${month}/${day}/${year}</p>
                     </div>
                     <div class="like-button-container" align="right">
                         <span id=${movie.id} class="heart"><i class="fa fa-heart-o" aria-hidden="true" ></i></span>
@@ -34,7 +35,8 @@ export const renderCard = function(movie) {
                         <div class="card-desc">
                             <strong>${title}</strong>
                             <p id="text" style="font-size:12px; color: #816058;">${overview}</p>
-                            <br>
+                        </div>
+                        <div class="release-date" align="left">
                             <p>${month}/${day}/${year}</p>
                         </div>
                         <div class="like-button-container" align="right">
