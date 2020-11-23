@@ -18,6 +18,6 @@ To retrieve movie by ID: https://api.themoviedb.org/3/find/{external_id}?api_key
 
 To retrieve filmography by actor: https://api.themoviedb.org/3/person/{person_id}/movie_credits?api_key=<<api_key>>&language=en-US
 
-# Technology Used:
+# Technology Used
 
 Bootstrap, HTML, CSS, Javascript, Firebase, Cloud Firestore
