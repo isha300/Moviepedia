@@ -19,38 +19,46 @@
 </head>
 
 <body id="signUpBackground">
-    <nav class="navbar navbar-light navbar-expand-md navigation-clean-search">
-        <div class="container"><a class="navbar-brand" href="#">MY MOVIEPEDIA</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse"
-                id="navcol-1">
-                <ul class="nav navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="index.html">HOME</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">NOW PLAYING</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">UPCOMING</a></li>
-                </ul>
-                <form class="form-inline mr-auto" target="_self">
-                    <div class="form-group">
-                        <label for="search-field"></label>
-                    </div>
-                </form>
-                <a class="btn btn-light action-button" role="button" id="loginBtn" href="login.html">Log In</a>
-                <a class="btn btn-light action-button" role="button" href="#">Sign In</a></div>
-        </div>
-    </nav>
+    <div class="nav-header">
+        <nav class="navbar navbar-light navbar-expand-md navbar navbar-expand-lg fixed-top" id="mainNav">
+            <div class="container"><a class="navbar-brand js-scroll-trigger main-title" href="index.html">My
+                    Moviepedia</a><button data-toggle="collapse"
+                    style="background-image: url('assets/img/movieprojector.jpg');height: 100px;"
+                    class="navbar-toggler navbar-toggler-right" data-target="#navbarResponsive" type="button"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"
+                    value="Menu"><i class="fa fa-bars"></i></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item nav-link js-scroll-trigger"><a class="nav-link js-scroll-trigger"
+                                href="nowplaying.html">Now Playing</a></li>
+                        <li class="nav-item nav-link js-scroll-trigger"><a class="nav-link js-scroll-trigger"
+                                href="upcoming.html">Upcoming</a></li>
+                        <li class="nav-item nav-link js-scroll-trigger"><a class="nav-link js-scroll-trigger"
+                                href="login.html">Log In</a></li>
+                        <li class="nav-item nav-link js-scroll-trigger"><a class="nav-link js-scroll-trigger"
+                                href="signup.html" style="border-bottom-style: solid;">Sign Up</a></li>
+                        <li class="nav-item"></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <header class="masthead" style="background-image: url('assets/img/movieIcon.jpg');height: 100px;">
+        </header>
+    </div>
     <h1 id="signUpInfoHeader">Sign up to save your favorite movies!</h1>
     <div class="card" id="signupCard">
         <form class="card-body signupForm">
             <h4 class="card-title">SIGN UP</h4>
             <div class="form-group">
-                <label>Email:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label>
+                <label>Email:</label>
                 <input type="email" class="email" id="signupUserEmail" required>
             </div>
             <div class="form-group">
-                <label>Password:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label>
+                <label>Password:</label>
                 <input type="password" class="password" id="signupUserPassword" required>
             </div>
             <div class="form-group">
-                <label>Verify Password:&nbsp; &nbsp; &nbsp;</label>
+                <label>Verify Password:</label>
                 <input type="password" class="verifyPassword" id="signupUserPassword2" required oninput="check(this)">
             </div>
 
