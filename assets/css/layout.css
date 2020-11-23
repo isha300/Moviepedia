@@ -12,7 +12,7 @@
 }
 
 body{
-  background-image: url("../img/movieIcon_trimmed.jpg");
+  background-image: url("../img/movieIcon.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
   background-attachment: fixed;
@@ -54,7 +54,7 @@ div.card-image img {
 }
 
 input[type=text] {
-  width: 55%;
+  width: 75%;
   box-sizing: border-box;
   border-radius: 4px;
   font-size: 16px;
@@ -63,9 +63,9 @@ input[type=text] {
   background-repeat: no-repeat;
   padding: 12px 20px 12px 10px;
   text-align: left;
-  margin-top: 20%;
-  margin-left: 20%;
-  margin-right: auto;
+  /* margin-top: 20%;
+  margin-left: 20%; */
+  /* margin-right: auto; */
   opacity: 60%;
 }
   
@@ -155,4 +155,11 @@ div hr{
   margin-left: -10%;
   margin-right: -10%;
   margin-top: -10%;
+}
+
+#resultContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
