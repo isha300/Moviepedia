@@ -11,7 +11,7 @@
   border-radius: 40px;
 }
 
-.logout, .loginSignup, .myfavorites, .like-button-container {
+.logout, .loginSignup, .myfavorites {
   display: none;
 }
 
@@ -37,6 +37,7 @@ body{
   background-color: rgb(243, 240, 240);
   color: black;
   width: 50%;
+  min-height: 100%;
   float: right;
   opacity: 90%;
 }
@@ -163,4 +164,8 @@ div hr{
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
+}
+
+.float-layout {
+  min-height: 100%;
 }

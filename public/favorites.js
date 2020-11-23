@@ -58,7 +58,6 @@ $(function() {
           // User is signed in.
             $('.logout').show();
             $('.myfavorites').show();
-            $('.like-button-container').show();
         } else {
             // No user is signed in.
             $('.loginSignup').show();

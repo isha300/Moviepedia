@@ -36,22 +36,6 @@ export const renderCard = function(movie) {
                 </div>
             </div>
         </div>`;
-    // let aCard = `
-    //     <div data-id=${movie.id} class="card-container">
-    //         <div class="float-layout">
-    //             <div class="card-image">
-    //                 <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}">
-    //                 <div class="card">
-    //                     <div class="card-desc">
-    //                         <p>${movie.title}</p>
-    //                     </div>
-    //                     <div class="unfavorite-button-container" align="right">
-    //                         <span id=${movie.id} class="heart"><i class="fa fa-heart" aria-hidden="true" ></i></span>
-    //                     </div>
-    //                 </div>
-    //             </div>
-    //         </div>
-    //     </div>`
     return aCard;
 };
 
