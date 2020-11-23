@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>My Moviepedia</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/undeveloped_bookregular.css">
+    <link rel="stylesheet" href="assets/css/undevelopedregular.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/login-styles.css">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Button-1.css">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Button.css">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Search.css">
+    <link rel="stylesheet" href="assets/css/Search-Field-With-Icon.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="icon" href="assets/img/favicon.png">
+</head>
+
+<body id="loginBackground">
+    <div class="nav-header">
+        <nav class="navbar navbar-light navbar-expand-md navbar navbar-expand-lg fixed-top" id="mainNav">
+            <div class="container"><a class="navbar-brand js-scroll-trigger main-title" href="index.html">My
+                    Moviepedia</a><button data-toggle="collapse"
+                    style="background-image: url('assets/img/movieprojector.jpg');height: 100px;"
+                    class="navbar-toggler navbar-toggler-right" data-target="#navbarResponsive" type="button"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"
+                    value="Menu"><i class="fa fa-bars"></i></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item nav-link js-scroll-trigger"><a class="nav-link js-scroll-trigger"
+                                href="nowplaying.html" >Now Playing</a></li>
+                        <li class="nav-item nav-link js-scroll-trigger"><a class="nav-link js-scroll-trigger"
+                                href="upcoming.html">Upcoming</a></li>
+                        <li class="nav-item nav-link js-scroll-trigger"><a class="nav-link js-scroll-trigger"
+                                href="login.html" style="border-bottom-style: solid;">Log In</a></li>
+                        <li class="button nav-item nav-link js-scroll-trigger"><a class="nav-link js-scroll-trigger"
+                                href="signup.html">Sign Up</a></li>
+                        <li class="nav-item"></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <header class="masthead" style="background-image: url('assets/img/movieIcon.jpg');height: 100px;">
+        </header>
+    </div>
+
+    <div class="card" id="loginCard">
+        <form class="card-body loginForm">
+            <h4 class="card-title">LOG IN</h4>
+            <div class="form-group">
+                <label>Email:</label>
+                <input type="email" class="email" id="userEmail" required>
+            </div>
+            <div class="form-group">
+                <label>Password:</label>
+                <input type="password" class="password" id="userPassword" required>
+            </div>
+            <button class="btn btn-primary text-left text-dark" id="loginEnterBtn" type="submit">Log In</button><br><br>
+            <h5 id="invalidLogin">Invalid Credentials!</h5>
+        </form>
+    </div>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="./node_modules/firebase/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="./node_modules/firebase/firebase-auth.js"></script>
+    <script src="./node_modules/firebase/firebase-firestore.js"></script>
+    
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyA7mn9OBzEaqnMZG7BvMKiIfVaqHsNCKeA",
+            authDomain: "moviepedia-dc067.firebaseapp.com",
+            databaseURL: "https://moviepedia-dc067.firebaseio.com",
+            projectId: "moviepedia-dc067",
+            storageBucket: "moviepedia-dc067.appspot.com",
+            messagingSenderId: "397029448180",
+            appId: "1:397029448180:web:8a816a5b2ef85d33d5c1a1"
+        };
+        firebase.initializeApp(firebaseConfig);
+    </script>
+    <script src="authentication.js" type="module"></script>
+</body>
+
+</html>

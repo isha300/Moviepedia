@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>My Moviepedia</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin:700">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="icon" href="assets/img/favicon.png">
+</head>
+
+<body id="page-top">
+    <div class="entire-page">
+        <div class="nav-header">
+            <nav class="navbar navbar-light navbar-expand-md navbar navbar-expand-lg fixed-top" id="mainNav">
+                <div class="container"><a class="navbar-brand js-scroll-trigger main-title" href="index.html"
+                        style="border-bottom-style: solid;">My Moviepedia</a>
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item nav-link js-scroll-trigger myfavorites">
+                                <a class="nav-link js-scroll-trigger" href="myfavorites.html">My Favorites</a>
+                            </li>
+                            <li class="nav-item nav-link js-scroll-trigger">
+                                <a class="nav-link js-scroll-trigger" href="nowplaying.html">Now Playing</a>
+                            </li>
+                            <li class="nav-item nav-link js-scroll-trigger"><a class="nav-link js-scroll-trigger"
+                                    href="upcoming.html">Upcoming</a></li>
+                            <li class="nav-item nav-link js-scroll-trigger loginSignup">
+                                <a class="nav-link js-scroll-trigger" href="login.html">Log In</a>
+                            </li>
+                            <li class="button nav-item nav-link js-scroll-trigger loginSignup">
+                                <a class="nav-link js-scroll-trigger" href="signup.html">Sign Up</a>
+                            </li>
+                            <li class="button nav-item nav-link js-scroll-trigger logout">
+                                <a class="nav-link js-scroll-trigger" href="">Log Out</a>
+                            </li>
+                            <li class="nav-item"></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <header class="masthead" style="background-image: url('assets/img/movieIcon.jpg');height: 100px;">
+            </header>
+    </div>
+
+        <div class="replace-container">
+            <div class="intro-row container">
+                    <h3 id="subtitle"><br>Your website for movie knowledge<br>
+                    <span style="font-size: 15px; color: #816058; font-weight: bold;">Sign up to save your favorite movies!</span></h3>
+            </div>
+            <div class="search-bar">
+                <div id="searchResults">
+                    <input id="searchBar" type="text" class="search-input" name="search-bar" placeholder="Type in the name of an actor/actress to see their movies..."/>
+                    <div id="results"></div>  
+                </div>
+            </div>
+        </div>
+    
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <script src="assets/js/grayscale.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="node_modules/axios/dist/axios.js"></script>   
+
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="./node_modules/firebase/firebase-app.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+            https://firebase.google.com/docs/web/setup#available-libraries -->
+
+        <!-- Add Firebase products that you want to use -->
+        <script src="./node_modules/firebase/firebase-auth.js"></script>
+        <script src="./node_modules/firebase/firebase-firestore.js"></script>
+        <script src="assets/js/autocomplete.js"></script>
+        <script src="favorites.js" type="module"></script>
+</body>
+
+</html>
