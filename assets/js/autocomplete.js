@@ -51,12 +51,48 @@ async function getMovies(personId) {
     return result.data.cast;
 }
 
+const handleLikeButtonPress = async function(event) {
+    var db = firebase.firestore();
+    let id = $(event.target).closest('span').attr('id');
+    id = parseInt(id);
+    if($(event.target).closest('span').children().filter('i').hasClass("fa-heart-o")){
+        $(event.target).closest('i').removeClass("fa-heart-o");
+        $(event.target).closest('i').addClass("fa-heart");
+        // favorite movie
+        firebase.auth().onAuthStateChanged(function(user) {
+            //ADD MOVIE ID TO DB FOR USER
+            var userRef = db.collection('users').doc(user.email);
+            userRef.set({
+            movies: firebase.firestore.FieldValue.arrayUnion(id)
+            }, {merge: true});
+        });
+    }
+    else{
+        $(event.target).closest('i').removeClass("fa-heart");
+        $(event.target).closest('i').addClass("fa-heart-o");
+        // unfavorite movie
+        firebase.auth().onAuthStateChanged(function(user) {
+            //REMOVE MOVIE ID TO DB FOR USER
+            var userRef = db.collection('users').doc(user.email);
+            userRef.update({
+                movies: firebase.firestore.FieldValue.arrayRemove(id)
+            });
+        });
+    }
+};
+
 async function namePage(event) {
     let movies = await getMovies(event.currentTarget.className);
     $('.replace-container').replaceWith(`<div id="resultContainer"></div>`);
-    // $("#resultContainer").append(renderCard(movies[0]));
     
     movies.forEach(m => $("#resultContainer").append(renderCard(m)));
+    
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            $('.like-button-container').show();
+        }
+    });
+    $("#resultContainer").on("click", "span.heart", handleLikeButtonPress);
 }
 
 const renderCard = function(movie) {
@@ -131,19 +167,7 @@ const renderCard = function(movie) {
     return (movie.poster_path === null) ? nullCard : card;
 }
 
-const handleLikeButtonPress = async function(event) {
-    let id = $(event.target).closest('span').attr('id');
-    if($(event.target).closest('span').children().filter('i').hasClass("fa-heart-o")){
-        $(event.target).closest('i').removeClass("fa-heart-o");
-        $(event.target).closest('i').addClass("fa-heart");
-    }
-    else{
-        $(event.target).closest('i').removeClass("fa-heart");
-        $(event.target).closest('i').addClass("fa-heart-o");
-    }
-};
-
 $(function() {
     $("#searchBar").on("keyup", autocomplete);
-    $("#resultContainer").on("click", "span.heart", handleLikeButtonPress);
+    //$("#resultContainer").on("click", "span.heart", handleLikeButtonPress);
 });
