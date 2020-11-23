@@ -1,47 +1,10 @@
 export const renderCard = function(movie) {
-    // let favorited = favorites.includes(movie.id);
-    // let aCard = "";
-    // if (favorited) {
-    //     aCard = `
-    //     <div data-id=${movie.id} class="card-container">
-    //         <div class="float-layout">
-    //             <div class="card-image">
-    //                 <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}">
-    //                 <div class="card">
-    //                     <div class="card-desc">
-    //                         <p>${movie.title}</p>
-    //                     </div>
-    //                     <div class="like-button-container" align="right">
-    //                         <span id=${movie.id} class="heart"><i class="fa fa-heart" aria-hidden="true" ></i></span>
-    //                     </div>
-    //                 </div>
-    //             </div>
-    //         </div>
-    //     </div>`
-    // } else {
-    //     aCard = `
-    //     <div data-id=${movie.id} class="card-container">
-    //         <div class="float-layout">
-    //             <div class="card-image">
-    //                 <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}">
-    //                 <div class="card">
-    //                     <div class="card-desc">
-    //                         <p>${movie.title}</p>
-    //                     </div>
-    //                     <div class="like-button-container" align="right">
-    //                         <span id=${movie.id} class="heart"><i class="fa fa-heart-o" aria-hidden="true" ></i></span>
-    //                     </div>
-    //                 </div>
-    //             </div>
-    //         </div>
-    //     </div>`
-    // }
-
     let month = `${movie.release_date}`.slice(5,7);
     let year = `${movie.release_date}`.slice(0,4);
     let day = `${movie.release_date}`.slice(8,10);
 
-    let overview = `${movie.overview}`.replace(/^(.{200}[^\s]*).*/, "$1" + "...");
+    let title = `${movie.title}`.replace(/^(.{32}[^\s]*).*/, "$1" + "...");
+    let overview = `${movie.overview}`.replace(/^(.{170}[^\s]*).*/, "$1" + "...");
 
     let nullCard = `<div data-id=${movie.id} class="card-container">
         <div class="float-layout">
@@ -49,7 +12,7 @@ export const renderCard = function(movie) {
                 <img src="assets/img/no-poster.JPG"/>
                 <div class="card">
                     <div class="card-desc">
-                        <strong>${movie.title}</strong>
+                        <strong>${title}</strong>
                         <p id="text" style="font-size:12px; color: #816058;">${overview}</p>
                         <br>
                         <p>${month}/${day}/${year}</p>
@@ -69,7 +32,7 @@ export const renderCard = function(movie) {
                     <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}">
                     <div id="card" class="card">
                         <div class="card-desc">
-                            <strong>${movie.title}</strong>
+                            <strong>${title}</strong>
                             <p id="text" style="font-size:12px; color: #816058;">${overview}</p>
                             <br>
                             <p>${month}/${day}/${year}</p>

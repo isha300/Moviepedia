@@ -3,7 +3,9 @@ export const renderCard = function(movie) {
     let year = `${movie.release_date}`.slice(0,4);
     let day = `${movie.release_date}`.slice(8,10);
 
-    let overview = `${movie.overview}`.replace(/^(.{200}[^\s]*).*/, "$1" + "...");
+    let title = `${movie.title}`.replace(/^(.{32}[^\s]*).*/, "$1" + "...");
+    let overview = `${movie.overview}`.replace(/^(.{170}[^\s]*).*/, "$1" + "...");
+
     let aCard = `
             <div data-id=${movie.id} class="card-container">
             <div class="float-layout">
@@ -11,7 +13,7 @@ export const renderCard = function(movie) {
                     <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}">
                     <div id="card" class="card">
                         <div class="card-desc">
-                            <strong>${movie.title}</strong>
+                            <strong>${title}</strong>
                             <p id="text" style="font-size:12px; color: #816058;">${overview}</p>
                             
                             <p>${month}/${day}/${year}</p>
