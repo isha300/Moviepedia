@@ -28,7 +28,8 @@ body{
 
 .card-container {
   overflow: hidden;
-  margin-top: 15%;
+  margin-top: 2%;
+  margin-bottom: 5%;
   width: 30%;
 }
 
@@ -58,7 +59,7 @@ div.card-image img {
 }
 
 input[type=text] {
-  width: 55%;
+  width: 75%;
   box-sizing: border-box;
   border-radius: 4px;
   font-size: 16px;
@@ -67,7 +68,7 @@ input[type=text] {
   background-repeat: no-repeat;
   padding: 12px 20px 12px 10px;
   text-align: left;
-  margin-top: 20%;
+  margin-top: 15%;
   margin-left: 20%;
   margin-right: auto;
   opacity: 60%;
@@ -77,12 +78,6 @@ input[type=text]:focus {
   opacity: 80%;
 }
 
-#searchButton{
-  background-color:#f1f1f1;
-  height: 44px;
-  margin-top: -0.25%;
-  opacity: 80%;
-}
 
 .page-intro{
   background-color:#f1f1f1;
@@ -91,13 +86,19 @@ input[type=text]:focus {
   margin-right: 10%;
 }
 
+.container {
+  color:black;
+  border-radius: 10px;
+}
+
 p.subtitle{
-  color: rgb(54, 52, 51);
+  color: black;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-weight: bold;
-  font-size: 40px;
+  font-size: 34px;
   margin-top: 2%;
   margin-left: 1%;
+  padding: 25px;
 }
 
 p.text{
@@ -128,6 +129,7 @@ p.text{
   width: 80%;
   background-color: #f1f1f1;
   height: 110px;
+  padding-left: 5%;
 }
 
 div hr{
@@ -159,4 +161,11 @@ div hr{
   margin-left: -10%;
   margin-right: -10%;
   margin-top: -10%;
+}
+
+#resultContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
