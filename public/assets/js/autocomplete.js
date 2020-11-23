@@ -18,7 +18,13 @@ const autocomplete = async function(event) {
 
     if (!event.code.includes("Shift") && text !="") {
         returned = await getName(text);
-        let filtered = returned.filter(x => x.name.toLowerCase().startsWith(text.toLowerCase())); // filter results by starting words in query
+
+        // filter results by starting words and popularity in query
+        let filtered = returned.filter(x => x.name.toLowerCase().startsWith(text.toLowerCase())); 
+
+        filtered.sort(function(a,b) {
+            return b.popularity - a.popularity;
+        });
 
         if (filtered.length === 0) {
             $(`#results`).replaceWith(`<div id="results"><div class="search-input searchResult" style="color:black">No results</div></div>`);
@@ -82,7 +88,15 @@ const handleLikeButtonPress = async function(event) {
 };
 
 async function namePage(event) {
+    // get movie names
     let movies = await getMovies(event.currentTarget.className);
+
+    // sort movies by popularity
+    movies.sort(function(a,b) {
+        return b.popularity - a.popularity;
+    });    
+    
+    // replace search bar with results
     $('.replace-container').replaceWith(`<div id="resultContainer"></div>`);
     
     movies.forEach(m => $("#resultContainer").append(renderCard(m)));
@@ -164,6 +178,7 @@ const renderCard = function(movie) {
     //     </div>
     // </div>`;
 
+    // if there is no movie poster, replace with no poster image
     return (movie.poster_path === null) ? nullCard : card;
 }
 
