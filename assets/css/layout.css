@@ -11,6 +11,10 @@
   border-radius: 40px;
 }
 
+.logout, .loginSignup, .myfavorites, .like-button-container {
+  display: none;
+}
+
 body{
   background-image: url("../img/movieIcon.jpg");
   background-repeat: no-repeat;
@@ -141,7 +145,7 @@ div hr{
   cursor: pointer;
 }
 
-.like-button-container{
+.like-button-container, .unfavorite-button-container{
   padding-top: 133%;
   padding-left: 85%;
   position: absolute;

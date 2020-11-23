@@ -29,21 +29,8 @@ export const renderPage = async function() {
     }
 };
 
-export const handleLikeButtonPress = async function(event) {
-    let id = $(event.target).closest('span').attr('id');
-    if($(event.target).closest('span').children().filter('i').hasClass("fa-heart-o")){
-        $(event.target).closest('i').removeClass("fa-heart-o");
-        $(event.target).closest('i').addClass("fa-heart");
-    }
-    else{
-        $(event.target).closest('i').removeClass("fa-heart");
-        $(event.target).closest('i').addClass("fa-heart-o");
-    }
-};
-
-export const loadTab = function(tweets) {
+export const loadTab = function() {
     renderPage();
-    $("#placeholder").on("click", "span.heart", handleLikeButtonPress);
 };
 
 $(function() {
