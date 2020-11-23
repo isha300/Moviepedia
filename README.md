@@ -7,6 +7,7 @@ This is a web application that allows users to input the name of an actor/actres
 
 # API 
 API Used: https://developers.themoviedb.org/3/
+
 API Calls
 For the Now Playing tab: https://api.themoviedb.org/3/movie/now_playing?api_key=<<api_key>>&language=en-US&page=1
 
