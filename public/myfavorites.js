@@ -16,27 +16,30 @@ export const renderCard = function(movie) {
     let year = `${movie.release_date}`.slice(0,4);
     let day = `${movie.release_date}`.slice(8,10);
 
+    let title = `${movie.title}`.replace(/^(.{32}[^\s]*).*/, "$1" + "...");
     let overview = `${movie.overview}`.replace(/^(.{170}[^\s]*).*/, "$1" + "...");
-    let aCard = `
+
+    let card = `
             <div data-id=${movie.id} class="card-container">
-            <div class="float-layout">
-                <div class="card-image">
-                    <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}">
-                    <div id="card" class="card">
-                        <div class="card-desc">
-                            <strong>${movie.title}</strong>
-                            <p id="text" style="font-size:12px; color: #816058;">${overview}</p>
-                            
-                            <p>${month}/${day}/${year}</p>
-                        </div>
-                        <div class="unfavorite-button-container" align="right">
+                <div class="float-layout">
+                    <div class="card-image">
+                        <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}">
+                        <div id="card" class="card">
+                            <div class="card-desc">
+                                <strong>${title}</strong>
+                                <p id="text" style="font-size:12px; color: #816058;">${overview}</p>
+                            </div>
+                            <div class="release-date" align="left">
+                                <p>${month}/${day}/${year}</p>
+                            </div>
+                            <div class="unfavorite-button-container" align="right">
                             <span id=${movie.id} class="heart"><i class="fa fa-heart" aria-hidden="true" ></i></span>
+                        </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>`;
-    return aCard;
+            </div>`;
+    return card;
 };
 
 export const renderPage = async function() {
