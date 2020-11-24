@@ -71,13 +71,16 @@ input[type=text] {
   margin-top: 15%;
   margin-left: 20%;
   margin-right: auto;
-  opacity: 60%;
+  opacity: 90%;
 }
   
 input[type=text]:focus {
-  opacity: 80%;
+  opacity: 100%;
 }
 
+input[type=text]::placeholder {
+  color: black;
+}
 
 .page-intro{
   background-color:#f1f1f1;
@@ -129,6 +132,7 @@ p.text{
   background-color: #f1f1f1;
   height: 110px;
   padding-left: 5%;
+  padding-bottom: 10.5%;
 }
 
 div hr{
