@@ -48,6 +48,9 @@ export const renderPage = async function() {
         docRef.get().then(async function(doc) {
             if (doc.exists) {
                 favorites = doc.data().movies;
+                if (favorites.length === 0) {
+                    $('#noFavoritesHeader').show();
+                }
                 for (let i = 0; i < favorites.length; i++) {
                     let movieObj = await axios({
                         method: 'get',
@@ -57,7 +60,7 @@ export const renderPage = async function() {
                 }
             } else {
                 // doc.data() will be undefined in this case
-                console.log("No such document!");
+                $('#noFavoritesHeader').show();
             }
         }).catch(function(error) {
             console.log("Error getting document:", error);
