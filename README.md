@@ -1,4 +1,4 @@
-# Moviepedia
+# My Moviepedia
 
 
 My Moviepedia Web Application: https://mymoviepedia.web.app/
