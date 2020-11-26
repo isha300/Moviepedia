@@ -25,4 +25,4 @@ To retrieve filmography by actor: https://api.themoviedb.org/3/person/{person_id
 
 # Backend
 
-Firebase authentication was used for Moviepedia's login and sign up system to allow users to create accounts with a username and password. Cloud Firestore was used as the backend for the app, storing a document for each user containing an array of favorited movie IDs within a database collection of users. Favoriting a movie appended that movie's ID to the respective user's array in the backend, and unfavoriting deleted the movie object from the backend. The My Favorites tab read this data from Firestore to render favorited movies. 
+Firebase authentication was used for Moviepedia's login and sign up system to allow users to create accounts with an email and password. Cloud Firestore was used as the backend for the app, storing a document for each user containing an array of favorited movie IDs within a database collection of users. Favoriting a movie appended that movie's ID to the respective user's array in the backend, and unfavoriting deleted the movie object from the backend. The user's My Favorites tab read this data from Firestore to render favorited movies. 
