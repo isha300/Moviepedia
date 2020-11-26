@@ -7,7 +7,7 @@ This is a web application that allows users to input the name of an actor/actres
 
 # Technology Used
 
-Bootstrap, HTML, CSS, Javascript, Firebase, Cloud Firestore
+HTML, CSS, Javascript, Bootstrap, Firebase, Cloud Firestore
 
 # API 
 API Used: https://developers.themoviedb.org/3/
