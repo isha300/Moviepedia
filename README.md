@@ -3,7 +3,11 @@
 
 My Moviepedia Web Application: https://mymoviepedia.web.app/
 
-This is a web application that allows users to input the name of an actor/actress and get their filmography returned in order of popularity. The Now Playing tab shows which movies are released in theaters and the Upcoming tab shows which movies are being released soon. The web application allows users to make an account and favorite movies that can be viewed later in their My Favorites tab.  
+This is a web application that allows users to input the name of an actor/actress and get their filmography returned in order of popularity. The Now Playing tab shows which movies are released in theaters and the Upcoming tab shows which movies are being released soon. The web application allows users to make an account and favorite movies that can be viewed later in their My Favorites tab.
+
+# Technology Used
+
+Bootstrap, HTML, CSS, Javascript, Firebase, Cloud Firestore
 
 # API 
 API Used: https://developers.themoviedb.org/3/
@@ -19,6 +23,6 @@ To retrieve movie by ID: https://api.themoviedb.org/3/find/{external_id}?api_key
 
 To retrieve filmography by actor: https://api.themoviedb.org/3/person/{person_id}/movie_credits?api_key=<<api_key>>&language=en-US
 
-# Technology Used
+# Backend
 
-Bootstrap, HTML, CSS, Javascript, Firebase, Cloud Firestore
+Firebase authentication was used for Moviepedia's login and sign up system to allow users to create accounts with a username and password. Cloud Firestore was used as the backend for the app, storing a document for each user containing an array of favorited movie IDs within a database collection of users. Favoriting a movie appended that movie's ID to the respective user's array in the backend, and unfavoriting deleted the movie object from the backend. The My Favorites tab read this data from Firestore to render favorited movies. 
